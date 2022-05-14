@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+/**
+ * git-phpcs connects phpcs with git
+ *
+ * @author      Mateusz Sikora <kontakt@mateusz-sikora.net>
+ * @license     MIT License
+ */
+
+include_once(dirname(__FILE__) . '/../../../autoload.php');
+
+$gitPhpcs = new GitPhpcs\GitPhpcs($argv);
+
+$gitPhpcs->run();
+
+die($gitPhpcs->getOutput());
