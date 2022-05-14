@@ -1,7 +1,17 @@
 ## Installation
 
+### Add repository
 ```
-composer global require mateuszsikoranet/git-phpcs
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/MateuszSikoraNet/git-phpcs"
+    }
+]
+```
+### Install
+```
+composer global require mateuszsikoranet/git-phpcs:dev-master
 ```
 
 ## Usage
