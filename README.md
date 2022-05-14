@@ -1,6 +1,6 @@
 ## Installation
 
-### Add repository
+### Add repository to composer.json
 ```
 "repositories": [
     {
