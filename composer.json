@@ -1,0 +1,17 @@
+{
+    "name": "mateuszsikoranet/git-phpcs",
+    "description": "Connects phpcs with git",
+    "require": {
+        "php": "*",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "license": "MIT License",
+    "autoload": {
+        "psr-4": {
+            "GitPhpcs\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/git-phpcs"
+    ]
+}
