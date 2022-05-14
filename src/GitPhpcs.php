@@ -100,7 +100,7 @@ class GitPhpcs
         $files = shell_exec(
             'git diff --name-only ' . $this->branches
         );
-        return array_filter(explode(PHP_EOL, $files));
+        return array_filter(preg_split('/\r\n|\r|\n/', $files));
     }
 
     protected function getChangedLines(array $files)
@@ -113,14 +113,14 @@ class GitPhpcs
                 . ' | grep -Po "^@@ (.*) @@" | grep -Po "\+(.*) @@$"'
             );
             $changes = str_replace(['+', ' @@'], '', $changes);
-            $changes = array_filter(explode(PHP_EOL, $changes));
+            $changes = array_filter(preg_split('/\r\n|\r|\n/', $changes));
 
             foreach ($changes as $change) {
                 $change = explode(",", $change);
 
                 if (isset($change[1])) {
-                    $start = $change[0];
-                    $end = $start + $change[1] - 1;
+                    $start = intval($change[0]);
+                    $end = $start + intval($change[1]) - 1;
 
                     foreach (range($start, $end) as $line) {
                         $lines[$line] = null;
