@@ -108,6 +108,7 @@ class GitPhpcs
         $changedLines = [];
 
         foreach ($files as $file) {
+            $lines = null;
             $changes = shell_exec(
                 'git diff -U0 ' . $this->branches . ' ' . $file
                 . ' | grep -Po "^@@ (.*) @@" | grep -Po "\+(.*) @@$"'
